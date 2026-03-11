@@ -9,8 +9,6 @@ class Hero extends Phaser.Physics.Arcade.Sprite {
 
         this.direction = direction
         this.heroVelocity = 100
-
-        //this.readTime = 3000 
         
         scene.HeroFSM = new StateMachine('idle', {
             idle: new IdleState(),

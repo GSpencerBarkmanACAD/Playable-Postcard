@@ -1,6 +1,8 @@
 // G. Spencer Barkman
 // Playable Postcard
 
+//Tile packs - Kodani, Schwarnhild, Graduation Cat, Guilherme Vieira
+
 'use strict'
 
 let config = {
@@ -11,6 +13,7 @@ let config = {
     pixelArt: true,
     zoom: 2,
     scale: {
+        //mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     physics: {
@@ -19,7 +22,7 @@ let config = {
             debug: true
         }
     },
-    scene: [ Load, Title, Play ]
+    scene: [ Load, Title, Play, Finale ]
 }
 
 let game = new Phaser.Game(config)
