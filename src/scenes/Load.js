@@ -24,6 +24,12 @@ class Load extends Phaser.Scene {
 
         this.load.image('temp_map', 'Images/background.png')
         this.load.image('test', 'Images/test.png')
+        this.load.image('hand', 'Images/hand.png')
+        this.load.image('thumb', 'Images/thumb.png')
+        this.load.image('neck', 'Images/neck.png')
+        this.load.image('knee', 'Images/knee.png')
+        this.load.image('shoulder', 'Images/shoulder.png')
+        this.load.image('heart', 'Images/heart.png')
         this.load.image('box', 'Images/dialogueBox.png')
 
         this.load.audio('collect', ['Sounds/collect.wav'])

@@ -33,24 +33,28 @@ class Play extends Phaser.Scene {
 
         this.tokens = this.physics.add.group()
 
-        this.test = this.physics.add.sprite(250, 200, 'test')
+        this.test = this.physics.add.sprite(250, 200, 'hand')
         this.test.text = "Press Space after 3 sec"
         this.tokens.add(this.test)
 
-        this.test2 = this.physics.add.sprite(100, 100, 'test')
+        this.test2 = this.physics.add.sprite(100, 100, 'thumb')
         this.test2.text = "This one says something else"
         this.tokens.add(this.test2)
 
-        this.test3 = this.physics.add.sprite(300, 300, 'test')
+        this.test3 = this.physics.add.sprite(300, 300, 'neck')
+        this.test3.text = "What could this one say?"
         this.tokens.add(this.test3)
 
-        this.test4 = this.physics.add.sprite(50, 200, 'test')
+        this.test4 = this.physics.add.sprite(50, 200, 'knee')
+        this.test4.text = "Wow another one!"
         this.tokens.add(this.test4)
 
-        this.test5 = this.physics.add.sprite(350, 200, 'test')
+        this.test5 = this.physics.add.sprite(350, 200, 'shoulder')
+        this.test5.text = "you're good at this"
         this.tokens.add(this.test5)
 
-        this.test6 = this.physics.add.sprite(300, 50, 'test')
+        this.test6 = this.physics.add.sprite(300, 50, 'heart')
+        this.test6.text = "nice."
         this.tokens.add(this.test6)
 
         this.cameras.main.setBounds(0, 0, this.map.displayWidth, this.map.displayHeight)
@@ -73,6 +77,8 @@ class Play extends Phaser.Scene {
         if (this.reading && Phaser.Input.Keyboard.JustDown(this.space)) {
             this.tint.setAlpha(0)
 
+            this.reading = false
+
             this.tweens.add({
                 targets: this.box,
                 alpha: { from: 1, to: 0},
@@ -81,7 +87,7 @@ class Play extends Phaser.Scene {
 
             this.test_text.setAlpha(0)
 
-            if (this.numTokens == 1) {
+            if (this.numTokens == 6) {
                 this.scene.start('finalScene')
             }
             
@@ -91,6 +97,9 @@ class Play extends Phaser.Scene {
     }
 
     collect(token) {
+
+        this.reading = false
+
         this.sound.play('collect')
         token.destroy()
         this.tint.setAlpha(0.75)
