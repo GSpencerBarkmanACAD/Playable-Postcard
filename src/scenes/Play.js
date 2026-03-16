@@ -174,7 +174,7 @@ class Play extends Phaser.Scene {
             this.spaceText.setAlpha(0)
 
             if (this.numTokens == 1) {
-                this.scene.start('finalScene')
+                this.flipPostcard()
             }
             
             this.HeroFSM.transition('idle')
@@ -222,6 +222,19 @@ class Play extends Phaser.Scene {
             this.time.delayedCall(this.readTime, () => {
                 this.reading = true
             })
+        })
+    }
+    
+    flipPostcard() {
+        const cam = this.cameras.main
+        this.tweens.add({
+            targets: cam,
+            zoomY: 0,
+            duration: 700,
+            ease: 'Cubic.easeIn',
+            onComplete: () => {
+                this.scene.start('finalScene')
+            }
         })
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="30" height="80" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="105">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="30" height="80" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="109">
  <editorsettings>
   <export target="map.json" format="json"/>
  </editorsettings>
@@ -1669,6 +1669,10 @@
   <object id="102" x="406.706" y="513.816" width="23.2847" height="27.9416"/>
   <object id="103" x="408.258" y="388.078" width="21.7324" height="24.837"/>
   <object id="104" x="21.7324" y="740.453" width="24.837" height="26.3893"/>
+  <object id="105" x="640.242" y="2312.5" width="3.28666" height="88.0826"/>
+  <object id="106" x="640.899" y="2461.05" width="191.284" height="2.62933"/>
+  <object id="107" x="827.582" y="2400.58" width="4.60133" height="59.8173"/>
+  <object id="108" x="827.582" y="2302.64" width="5.91599" height="34.8386"/>
  </objectgroup>
  <objectgroup id="3" name="Spawns">
   <object id="7" name="player_spawn" x="591.509" y="285.061">
@@ -1693,7 +1697,7 @@
    <point/>
   </object>
  </objectgroup>
- <layer id="4" name="Overhang" width="30" height="80">
+ <layer id="4" name="Overhang" width="30" height="80" visible="0">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

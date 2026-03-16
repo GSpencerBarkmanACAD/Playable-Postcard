@@ -5,7 +5,6 @@ class Title extends Phaser.Scene {
 
     create() {
         this.map = this.add.image(0, 0, 'temp_map').setOrigin(0, 0)
-        this.map.setScale(0.75)
 
         let title = this.add.text(centerX, centerY, 'Title Screen', {
             fontSize: '45px'
