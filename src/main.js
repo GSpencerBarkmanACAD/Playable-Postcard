@@ -8,8 +8,8 @@
 let config = {
     parent: 'myGame',
     type: Phaser.AUTO,
-    width: 400,
-    height: 300,
+    width: 500,
+    height: 375,
     pixelArt: true,
     zoom: 2,
     scale: {
@@ -22,7 +22,7 @@ let config = {
             debug: true
         }
     },
-    scene: [ Load, Title, Play, Finale ]
+    scene: [ Load, Title, Play, Finale, Credits ]
 }
 
 let game = new Phaser.Game(config)

@@ -15,12 +15,16 @@ class Title extends Phaser.Scene {
             fontSize: '32px'
         }).setOrigin(0.5).setDepth(10)
 
-        cursors = this.input.keyboard.createCursorKeys()
+        let spaceText = this.add.text(centerX, centerY+156, 'Press Space to Continue', {
+            fontSize: '16px'
+        }).setOrigin(0.5).setDepth(1000).setScrollFactor(0)
+
+        this.space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
 
     }
 
     update() {
-        if (Phaser.Input.Keyboard.JustDown(cursors.up)) {
+        if (Phaser.Input.Keyboard.JustDown(this.space)) {
             this.sound.play('start')
             this.scene.start('playScene')
         }

@@ -37,7 +37,7 @@ class Play extends Phaser.Scene {
         this.tint.setDepth(50)
         this.tint.setScrollFactor(0)
 
-        this.readTime = 3000
+        this.readTime = 1500
 
         this.reading = false
 
@@ -60,41 +60,63 @@ class Play extends Phaser.Scene {
         const overhang = map.createLayer('Overhang', tilesets, 0,0)
 
         //dialog box       
-        this.box = this.add.sprite(centerX, h - 48, 'box')
+        this.box = this.add.sprite(centerX, centerY, 'box')
+        this.box.setScale(1.1)
         this.box.setAlpha(0)
         this.box.setDepth(100)
         this.box.setScrollFactor(0)
 
-        this.test_text = this.add.text(centerX, centerY + 96, 'Press Space to Remove Box', {
+        this.test_text = this.add.text(centerX, centerY, '', {
+            fontSize: '16px'
+        }).setOrigin(0.5).setDepth(1000).setScrollFactor(0).setAlpha(0)
+
+        this.dateText = this.add.text(centerX, centerY+64, '', {
+            fontSize: '32px'
+        }).setOrigin(0.5).setDepth(1000).setScrollFactor(0).setAlpha(0)
+
+        this.spaceText = this.add.text(centerX, centerY+144, 'Press Space to Continue', {
             fontSize: '16px'
         }).setOrigin(0.5).setDepth(1000).setScrollFactor(0).setAlpha(0)
 
         //create collectables
         this.tokens = this.physics.add.group()
 
-        this.test = this.physics.add.sprite(handSpawn.x, handSpawn.y, 'hand')
-        this.test.text = "Press Space after 3 sec\ndoes this work?"
-        this.tokens.add(this.test)
+        //for displaying with text
+        this.tokenDisplay = this.add.sprite(centerX, centerY, 'hand')
+        this.tokenDisplay.setScale(2)
+        this.tokenDisplay.setAlpha(0)
+        this.tokenDisplay.setDepth(101)
+        this.tokenDisplay.setScrollFactor(0)
 
-        this.test2 = this.physics.add.sprite(thumbSpawn.x, thumbSpawn.y, 'thumb')
-        this.test2.text = "This one says something else"
-        this.tokens.add(this.test2)
+        this.hand = this.physics.add.sprite(handSpawn.x, handSpawn.y, 'hand')
+        this.hand.date = "12/3/2023"
+        this.hand.text = "Playing against Silicon Valley RFC, \nI fractured my hand. While fairly minor\n(I could play through it within a month), \nthis was only 3 months into my rugby \ncareer. I suppose this was a teaser of \nwhat was to come… except I’ve always \nbeen injury prone, haven’t I?"
+        this.tokens.add(this.hand)
 
-        this.test3 = this.physics.add.sprite(neckSpawn.x, neckSpawn.y, 'neck')
-        this.test3.text = "What could this one say?"
-        this.tokens.add(this.test3)
+        this.thumb = this.physics.add.sprite(thumbSpawn.x, thumbSpawn.y, 'thumb')
+        this.thumb.date = "1/23/2024"
+        this.thumb.text = "Barely a month after the hand, a\nblistering CRACK was heard while\npracticing lineouts. At the time,\nI couldn’t feel my thumb, but it\nlooked anything but normal. Split\nfracture. 2 months minimum recovery.\nAnd there went my freshman season.\nI could play with a hand brace\nand tape, but without an opposable\nthumb, that wasn’t gonna work."
+        this.tokens.add(this.thumb)
 
-        this.test4 = this.physics.add.sprite(kneeSpawn.x, kneeSpawn.y, 'knee')
-        this.test4.text = "Wow another one!"
-        this.tokens.add(this.test4)
+        this.neck = this.physics.add.sprite(neckSpawn.x, neckSpawn.y, 'neck')
+        this.neck.date = "11/9/2024"
+        this.neck.text = "While playing Saint Mary’s, arguably \nthe best college team in the country,\nI made it onto the A-side 23. My first\nand only A-side game thus far. It was\nalso my first game playing tighthead \nprop, a position that normally requires\na lot more weight than I had, and is the \nanchor of the scrum. After playing the \nwhole second 40-minute half, against \nthe #1 team in the conference, my neck\nLITERALLY gave out: A pinched nerve,\nsome bruising, and no longer being able \nto look up manually. Luckily, not broken,\nbut another 3 months of recovery."
+        this.tokens.add(this.neck)
 
-        this.test5 = this.physics.add.sprite(shoulderSpawn.x, shoulderSpawn.y, 'shoulder')
-        this.test5.text = "you're good at this"
-        this.tokens.add(this.test5)
+        this.knee = this.physics.add.sprite(kneeSpawn.x, kneeSpawn.y, 'knee')
+        this.knee.date = "1/20/2025"
+        this.knee.text = "After a whole month of practicing\nat Cabrillo Community College, \nwith metal-studded cleats, my knee\nthe wear and tear on my knee, both\nMCL and ACL, was becoming apparent.\nI had to sit out of the Sacramento \nState game, and my minutes in the \nremaining 5 games of the season were\nhalved, and on the B-side."
+        this.tokens.add(this.knee)
 
-        this.test6 = this.physics.add.sprite(heartSpawn.x, heartSpawn.y, 'heart')
-        this.test6.text = "nice."
-        this.tokens.add(this.test6)
+        this.shoulder = this.physics.add.sprite(shoulderSpawn.x, shoulderSpawn.y, 'shoulder')
+        this.shoulder.date = "2/1/2026"
+        this.shoulder.text = "Then, after almost a whole year\nwithout real physical injury, and \nafter performing really well in the\nfirst 3 games of the season, while\nat Sac State, right before the half\nway mark, I made a tackle that \nresulted in a shoulder subluxation\n(instant dis/re-locatation) and a \nslight tear in my labrum. Huzzah!\nThere went the rest of my junior \nseason; 4 season matches, and 2 in\nCanada over Spring Break."
+        this.tokens.add(this.shoulder)
+
+        this.heart = this.physics.add.sprite(heartSpawn.x, heartSpawn.y, 'heart')
+        this.heart.date = "PAST/PRESENT/FUTURE"
+        this.heart.text = "How could I not mention my heart?\nI suppose it’s not a rugby injury, \nbut I think my heart has ultimately\nsustained the most damage, depsite\noften healing quickly. Could be for \n9/25/23, 8/27/24, or 1/21/25, or \nnumerous other dates. Those are\njust the Ellie ones. Not to mention\nthe general heartbreak of being so\nfar from all of my Sonoma friends \nI’ve learned a lot about love and \nrelationships, especially what I \nvalue, need, and expect out of\nall of them."
+        this.tokens.add(this.heart)
 
 
         //camera set up
@@ -149,8 +171,9 @@ class Play extends Phaser.Scene {
             })
 
             this.test_text.setAlpha(0)
+            this.spaceText.setAlpha(0)
 
-            if (this.numTokens == 6) {
+            if (this.numTokens == 1) {
                 this.scene.start('finalScene')
             }
             
@@ -162,26 +185,43 @@ class Play extends Phaser.Scene {
     collect(token) {
 
         this.reading = false
-
         this.sound.play('collect')
+
+        const icon = token.texture.key
+        const date = token.date
+        const text = token.text
+
         token.destroy()
+
         this.tint.setAlpha(0.75)
         this.HeroFSM.transition('collect')
-        
+
         this.tweens.add({
             targets: this.box,
-            alpha: { from: 0, to: 1},
+            alpha: { from: 0, to: 1 },
             duration: 500
         })
 
-        this.test_text.setText(token.text)
+        this.tokenDisplay.setTexture(icon)
+        this.tokenDisplay.setAlpha(1)
 
-        this.test_text.setAlpha(1)
+        this.dateText.setText(date)
+        this.dateText.setAlpha(1)
 
         this.numTokens++
 
-        this.time.delayedCall(this.readTime, () => {
-            this.reading = true  
+        this.time.delayedCall(2500, () => {
+            this.tokenDisplay.setAlpha(0)
+            this.dateText.setAlpha(0)
+
+            this.spaceText.setAlpha(1)
+
+            this.test_text.setText(text)
+            this.test_text.setAlpha(1)
+
+            this.time.delayedCall(this.readTime, () => {
+                this.reading = true
+            })
         })
     }
 }
