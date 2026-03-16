@@ -81,7 +81,7 @@ class Play extends Phaser.Scene {
         //create collectables
         this.tokens = this.physics.add.group()
 
-        //for displaying with text
+        //for displaying text
         this.tokenDisplay = this.add.sprite(centerX, centerY, 'hand')
         this.tokenDisplay.setScale(2)
         this.tokenDisplay.setAlpha(0)
@@ -90,32 +90,92 @@ class Play extends Phaser.Scene {
 
         this.hand = this.physics.add.sprite(handSpawn.x, handSpawn.y, 'hand')
         this.hand.date = "12/3/2023"
-        this.hand.text = "Playing against Silicon Valley RFC, \nI fractured my hand. While fairly minor\n(I could play through it within a month), \nthis was only 3 months into my rugby \ncareer. I suppose this was a teaser of \nwhat was to come… except I’ve always \nbeen injury prone, haven’t I?"
+        this.hand.text = "Playing against Silicon Valley RFC, \n\
+I fractured my hand. While fairly minor\n\
+(I could play through it within a month), \n\
+this was only 3 months into my rugby \n\
+career. I suppose this was a teaser of \n\
+what was to come… except I’ve always \n\
+been injury prone, haven’t I?"
         this.tokens.add(this.hand)
 
         this.thumb = this.physics.add.sprite(thumbSpawn.x, thumbSpawn.y, 'thumb')
         this.thumb.date = "1/23/2024"
-        this.thumb.text = "Barely a month after the hand, a\nblistering CRACK was heard while\npracticing lineouts. At the time,\nI couldn’t feel my thumb, but it\nlooked anything but normal. Split\nfracture. 2 months minimum recovery.\nAnd there went my freshman season.\nI could play with a hand brace\nand tape, but without an opposable\nthumb, that wasn’t gonna work."
+        this.thumb.text = "Barely a month after the hand, a\n\
+blistering CRACK was heard while\n\
+practicing lineouts. At the time,\n\
+I couldn’t feel my thumb, but it\n\
+looked anything but normal. Split\n\
+fracture. 2 months minimum recovery.\n\
+And there went my freshman season.\n\
+I could play with a hand brace\n\
+and tape, but without an opposable\n\
+thumb, that wasn’t gonna work."
         this.tokens.add(this.thumb)
 
         this.neck = this.physics.add.sprite(neckSpawn.x, neckSpawn.y, 'neck')
         this.neck.date = "11/9/2024"
-        this.neck.text = "While playing Saint Mary’s, arguably \nthe best college team in the country,\nI made it onto the A-side 23. My first\nand only A-side game thus far. It was\nalso my first game playing tighthead \nprop, a position that normally requires\na lot more weight than I had, and is the \nanchor of the scrum. After playing the \nwhole second 40-minute half, against \nthe #1 team in the conference, my neck\nLITERALLY gave out: A pinched nerve,\nsome bruising, and no longer being able \nto look up manually. Luckily, not broken,\nbut another 3 months of recovery."
+        this.neck.text = "While playing Saint Mary’s, arguably \n\
+the best college team in the country,\n\
+I made it onto the A-side 23. My first\n\
+and only A-side game thus far. It was\n\
+also my first game playing tighthead \n\
+prop, a position that normally requires\n\
+a lot more weight than I had, and is the \n\
+anchor of the scrum. After playing the \n\
+whole second 40-minute half, against \n\
+the #1 team in the conference, my neck\n\
+LITERALLY gave out: A pinched nerve,\n\
+some bruising, and no longer being able \n\
+to look up manually. Luckily, not broken,\n\
+but another 3 months of recovery."
         this.tokens.add(this.neck)
 
         this.knee = this.physics.add.sprite(kneeSpawn.x, kneeSpawn.y, 'knee')
         this.knee.date = "1/20/2025"
-        this.knee.text = "After a whole month of practicing\nat Cabrillo Community College, \nwith metal-studded cleats, my knee\nthe wear and tear on my knee, both\nMCL and ACL, was becoming apparent.\nI had to sit out of the Sacramento \nState game, and my minutes in the \nremaining 5 games of the season were\nhalved, and on the B-side."
+        this.knee.text = "After a whole month of practicing\n\
+        at Cabrillo Community College, \n\
+        with metal-studded cleats, my knee\n\
+        the wear and tear on my knee, both\n\
+        MCL and ACL, was becoming apparent.\n\
+        I had to sit out of the Sacramento \n\
+        State game, and my minutes in the \n\
+        remaining 5 games of the season were\n\
+        halved, and on the B-side."
         this.tokens.add(this.knee)
 
         this.shoulder = this.physics.add.sprite(shoulderSpawn.x, shoulderSpawn.y, 'shoulder')
         this.shoulder.date = "2/1/2026"
-        this.shoulder.text = "Then, after almost a whole year\nwithout real physical injury, and \nafter performing really well in the\nfirst 3 games of the season, while\nat Sac State, right before the half\nway mark, I made a tackle that \nresulted in a shoulder subluxation\n(instant dis/re-locatation) and a \nslight tear in my labrum. Huzzah!\nThere went the rest of my junior \nseason; 4 season matches, and 2 in\nCanada over Spring Break."
+        this.shoulder.text = "Then, after almost a whole year\n\
+without real physical injury, and \n\
+after performing really well in the\n\
+first 3 games of the season, while\n\
+at Sac State, right before the half\n\
+way mark, I made a tackle that \n\
+resulted in a shoulder subluxation\n\
+(instant dis/re-locatation) and a \n\
+slight tear in my labrum. Huzzah!\n\
+There went the rest of my junior \n\
+season; 4 season matches, and 2 in\n\
+Canada over Spring Break."
         this.tokens.add(this.shoulder)
 
         this.heart = this.physics.add.sprite(heartSpawn.x, heartSpawn.y, 'heart')
         this.heart.date = "PAST/PRESENT/FUTURE"
-        this.heart.text = "How could I not mention my heart?\nI suppose it’s not a rugby injury, \nbut I think my heart has ultimately\nsustained the most damage, depsite\noften healing quickly. Could be for \n9/25/23, 8/27/24, or 1/21/25, or \nnumerous other dates. Those are\njust the Ellie ones. Not to mention\nthe general heartbreak of being so\nfar from all of my Sonoma friends \nI’ve learned a lot about love and \nrelationships, especially what I \nvalue, need, and expect out of\nall of them."
+        this.heart.text = "How could I not mention my heart?\n\
+I suppose it’s not a rugby injury, \n\
+but I think my heart has ultimately\n\
+sustained the most damage, depsite\n\
+often healing quickly. Could be for \n\
+9/25/23, 8/27/24, or 1/21/25, or \n\
+numerous other dates. Those are\n\
+just the Ellie ones. Not to mention\n\
+the general heartbreak of being so\n\
+far from all of my Sonoma friends \n\
+I’ve learned a lot about love and \n\
+relationships, especially what I \n\
+value, need, and expect out of\n\
+all of them."
         this.tokens.add(this.heart)
 
 
@@ -230,7 +290,7 @@ class Play extends Phaser.Scene {
         this.tweens.add({
             targets: cam,
             zoomY: 0,
-            duration: 700,
+            duration: 1000,
             ease: 'Cubic.easeIn',
             onComplete: () => {
                 this.scene.start('finalScene')

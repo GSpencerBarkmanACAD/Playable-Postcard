@@ -12,8 +12,12 @@ let config = {
     height: 375,
     pixelArt: true,
     zoom: 2,
+    render: {
+        pixelArt: true,
+        roundPixels: true
+    },
     scale: {
-        //mode: Phaser.Scale.FIT,
+        mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     physics: {
