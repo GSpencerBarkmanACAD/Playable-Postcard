@@ -22,6 +22,16 @@ class Load extends Phaser.Scene {
             frameHeight: 32,
         })
 
+        this.load.image('assets', 'Map/assets.png')
+        this.load.image('environment', 'Map/environment.png')
+        this.load.image('fence', 'Map/fence.png')
+        this.load.image('interior', 'Map/interior.png')
+        this.load.image('kodani', 'Map/kodani.png')
+        this.load.image('terrain', 'Map/terrain.png')
+        this.load.image('townpack', 'Map/townpack.png')
+
+        this.load.tilemapTiledJSON('mapJSON', 'Map/map.json')
+
         this.load.image('temp_map', 'Images/background.png')
         this.load.image('test', 'Images/test.png')
         this.load.image('hand', 'Images/hand.png')
