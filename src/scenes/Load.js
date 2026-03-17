@@ -40,17 +40,24 @@ class Load extends Phaser.Scene {
         this.load.image('knee', 'Images/knee.png')
         this.load.image('shoulder', 'Images/shoulder.png')
         this.load.image('heart', 'Images/heart.png')
+
+        this.load.font('Aquiline2', 'Images/AquilineTwo.ttf', 'truetype')
+
+        this.load.image('view', 'Images/view.png')
         this.load.image('box', 'Images/dialogueBox.png')
         this.load.image('postcard', 'Images/postcard.png')
         this.load.image('creditBCKGRND', 'Images/credits.png')
 
         this.load.audio('collect', ['Sounds/collect.wav'])
         this.load.audio('start', ['Sounds/start.wav'])
+        this.load.audio('step', ['Sounds/step.wav'])
+        this.load.audio('carefree', ['Sounds/Carefree.mp3'])
 
     }
 
     create() {
 
+        //set up animation system
         this.anims.create({
             key: 'walk-down',
             frameRate: 8,

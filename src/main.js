@@ -1,7 +1,17 @@
 // G. Spencer Barkman
-// Playable Postcard
-
-//Tile packs - Kodani, Schwarnhild, Graduation Cat, Guilherme Vieira
+// Playable Postcard - "Physical Tokens"
+// Time Spent: 26 hours
+// Phaser Components Used: Arcade Physics, Cameras, Text Objects, 
+// Animation mananger, Tween Manager, Timers, Tilemaps, Statemachines
+// Tile packs - Kodani, Schwarnhild, Graduation Cat, Guilherme Vieira
+// Music - Kevin Macleod
+// Font - Manfred Klein
+// Load screen code https://rexrainbow.github.io/phaser3-rex-notes/docs/site/loader/
+// No creative tilt I'm particularly proud of. Glad I finally got the footsteps working,
+// but I was mostly using this assignment to get familiar with Tiled, and work on my 
+// environment building. So I made an abridged version of the Cowell/Stevenson dining 
+// Hall area and the east field, featuring a rugby pitch, and used the postcard
+// prompt to try and really reach out and connect with my best friend.
 
 'use strict'
 
@@ -23,7 +33,7 @@ let config = {
     physics: {
         default: "arcade",
         arcade: {
-            debug: true
+            //debug: true
         }
     },
     scene: [ Load, Title, Play, Finale, Credits ]

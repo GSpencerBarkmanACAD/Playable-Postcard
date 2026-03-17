@@ -59,6 +59,14 @@ class Play extends Phaser.Scene {
         //goes behind trees
         const overhang = map.createLayer('Overhang', tilesets, 0,0)
 
+        //music
+        this.soundtrack = this.sound.add('carefree', {
+            loop: true,
+            volume: 0.75
+        })
+
+        this.soundtrack.play()
+
         //dialog box       
         this.box = this.add.sprite(centerX, centerY, 'box')
         this.box.setScale(1.1)
@@ -134,14 +142,14 @@ but another 3 months of recovery."
         this.knee = this.physics.add.sprite(kneeSpawn.x, kneeSpawn.y, 'knee')
         this.knee.date = "1/20/2025"
         this.knee.text = "After a whole month of practicing\n\
-        at Cabrillo Community College, \n\
-        with metal-studded cleats, my knee\n\
-        the wear and tear on my knee, both\n\
-        MCL and ACL, was becoming apparent.\n\
-        I had to sit out of the Sacramento \n\
-        State game, and my minutes in the \n\
-        remaining 5 games of the season were\n\
-        halved, and on the B-side."
+at Cabrillo Community College, \n\
+with metal-studded cleats, my knee...\n\
+the wear and tear on my knee, both\n\
+MCL and ACL, was becoming apparent.\n\
+I had to sit out of the Sacramento \n\
+State game, and my minutes in the \n\
+remaining 5 games of the season were\n\
+halved, and on the B-side."
         this.tokens.add(this.knee)
 
         this.shoulder = this.physics.add.sprite(shoulderSpawn.x, shoulderSpawn.y, 'shoulder')
@@ -187,22 +195,6 @@ all of them."
         //map collision
 
         const collision = map.getObjectLayer('Collision')
-        this.collisionGroup = this.physics.add.staticGroup()
-
-        collision.objects.forEach(obj => {
-            const rect = this.add.rectangle(
-                obj.x + obj.width / 2,
-                obj.y + obj.height / 2,
-                obj.width,
-                obj.height,
-                0xff0000,
-                0.2
-            );
-
-            this.physics.add.existing(rect, true)
-            this.collisionGroup.add(rect)
-        });
-
         this.physics.add.collider(this.hero, this.collisionGroup)
 
         //keys
@@ -219,6 +211,13 @@ all of them."
 
         this.HeroFSM.step()
 
+        //footstep with delay function call
+
+        if (this.hero.body.velocity.length() > 10 && !this.isStepping) {
+            this.isStepping = true;
+            this.playFootstep();
+        }
+
         if (this.reading && Phaser.Input.Keyboard.JustDown(this.space)) {
             this.tint.setAlpha(0)
 
@@ -233,7 +232,7 @@ all of them."
             this.test_text.setAlpha(0)
             this.spaceText.setAlpha(0)
 
-            if (this.numTokens == 1) {
+            if (this.numTokens == 6) {
                 this.flipPostcard()
             }
             
@@ -296,5 +295,16 @@ all of them."
                 this.scene.start('finalScene')
             }
         })
+    }
+
+    playFootstep() {
+        if (!this.hero.body || this.hero.body.velocity.length() <= 10) {
+            this.isStepping = false;
+            return;
+        }
+    
+        this.sound.play('step', { volume: 0.3 });
+    
+        this.time.delayedCall(250, () => this.playFootstep());
     }
 }

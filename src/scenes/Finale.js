@@ -92,7 +92,6 @@ a demi-sexual."
 
 
         this.part3 = "I haven’t had a successful\n\
-I haven’t had a successful\n\
 relationship here, and the\n\
 one that lasted the\n\
 longest (like a month and\n\
@@ -144,6 +143,7 @@ little game."
         
         if (this.count == 3) {
             this.message.setText(this.part3)
+            this.instruction.setAlpha(0)
             this.continue.setAlpha(1)
             this.finished = true
         }
@@ -152,11 +152,13 @@ little game."
     prev() {
         this.count--
         if (this.count == 1) {
+            this.instruction.setAlpha(1)
             this.message.setText(this.part1)
             this.finished = false
         }
         
         if (this.count == 2) {
+            this.instruction.setAlpha(1)
             this.message.setText(this.part2)
             this.continue.setAlpha(0)
             this.finished = false
