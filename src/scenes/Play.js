@@ -195,6 +195,21 @@ all of them."
         //map collision
 
         const collision = map.getObjectLayer('Collision')
+
+        this.collisionGroup = this.physics.add.staticGroup()
+
+        collision.objects.forEach(obj => {
+            const rect = this.add.rectangle(
+                obj.x + obj.width / 2,
+                obj.y + obj.height / 2,
+                obj.width,
+                obj.height
+            )
+
+            this.physics.add.existing(rect, true) 
+            this.collisionGroup.add(rect)
+        })
+
         this.physics.add.collider(this.hero, this.collisionGroup)
 
         //keys
